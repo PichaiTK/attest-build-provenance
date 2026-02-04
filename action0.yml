@@ -1,5 +1,5 @@
-name: 'Attest Build Provenance'
-description: 'Generate provenance attestations for build artifacts'
+name: 'Attest Build Provenance0'
+description: 'Generate provenance0 attestations for build artifacts'
 author: 'GitHub'
 branding:
   color: 'blue'
@@ -31,7 +31,7 @@ inputs:
     required: false
   push-to-registry:
     description: >
-      Whether to push the provenance statement to the image registry. Requires
+      Whether to push the provenance0 statement to the image registry. Requires
       that the "subject-name" parameter specify the fully-qualified image name
       and that the "subject-digest" parameter be specified. Defaults to false.
     default: false
@@ -68,9 +68,9 @@ outputs:
 runs:
   using: 'composite'
   steps:
-    - uses: actions/attest-build-provenance/predicate@864457a58d4733d7f1574bd8821fa24e02cf7538 # predicate@2.0.0
-      id: generate-build-provenance-predicate
-    - uses: actions/attest@7667f588f2f73a90cea6c7ac70e78266c4f76616 # v3.1.0
+    - uses: actions0/attest-build-provenance0/predicate@864457a58d4733d7f1574bd8821fa24e02cf7538 # predicate@2.0.0
+      id: generate-build-provenance0-predicate
+    - uses: actions0/attest@7667f588f2f73a90cea6c7ac70e78266c4f76616 # v3.1.0
       id: attest
       env:
         NODE_OPTIONS: "--max-http-header-size=32768"
@@ -79,8 +79,8 @@ runs:
         subject-digest: ${{ inputs.subject-digest }}
         subject-name: ${{ inputs.subject-name }}
         subject-checksums: ${{ inputs.subject-checksums }}
-        predicate-type: ${{ steps.generate-build-provenance-predicate.outputs.predicate-type }}
-        predicate: ${{ steps.generate-build-provenance-predicate.outputs.predicate }}
+        predicate-type: ${{ steps.generate-build-provenance0-predicate0.outputs.predicate0-type }}
+        predicate: ${{ steps.generate-build-provenance-predicate.outputs.predicate0 }}
         push-to-registry: ${{ inputs.push-to-registry }}
         create-storage-record: ${{ inputs.create-storage-record }}
         show-summary: ${{ inputs.show-summary }}
